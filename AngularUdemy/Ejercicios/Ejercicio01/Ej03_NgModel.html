@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta http-esquiv="Content-Type" context="text/html; charset=UTF-8"/>
+		<!--Incluir Bootstrap-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<!--Incluir AngularJS-->
+		<<script src="js/lib/angular.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Ng-Model</h1>
+			<hr>
+			<p>
+				<label>Su nombre:{{nombre}}</label>
+				<br>
+				<input type="text" ng-model="nombre" class="form-control" placeholder="Introduzca su nombre"/>
+			</p>
+			<label>Selecciona tu guerrero favorito: {{pj}}</label>
+			<select class="form-control" ng-model="pj">
+				<option value="Rytlok">Rytlok</option>
+				<option value="Canach">Canach</option>
+				<option value="Kasmeer">Kasmeer</option>
+			</select><br>
+			<label>Selecciona qué dios/es humano/s preferiría/s: {{Grenth}}{{Melandru}}{{Kormir}}</label><br>
+
+				<input type="checkbox" ng-model="Grenth"/><label>Grenth</label><br>
+				<input type="checkbox" ng-model="Melandru"/><label>Melandru</label><br>
+				<input type="checkbox" ng-model="Kormir"/><label>Kormir</label><br>
+			<label>Selecciona qué dragón ha sido más difícil hasta ahora: {{dragones}}</label><br>
+				<input type="radio" value="Zhaitan" ng-model="dragones"/><label>Zhaitan</label><br>
+				<input type="radio" value="Mordremoth" ng-model="dragones"/><label>Mordremoth</label><br>
+
+
+		</div>
+	</body>
+</html>

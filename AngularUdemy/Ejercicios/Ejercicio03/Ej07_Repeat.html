@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html ng-app="anvengersApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Ejercicio 02 - Captain America</title>
+
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="Ejercicio03/js/app.js"></script>
+        
+    </head>    
+    <body>
+        <div class="container" ng-controller="listadoCtrl"> 
+            <h1>Ng-Repeat</h1>
+            <!-- ="(key,value) in dataset"  dataset es el origen de datos 
+                la variable no existe en ningún lado-->
+            <hr>
+            <!--Ejemplo filtro json-->
+            {{listado | json}}
+            <!--Ejemplo ng simple-->
+            <ul>
+                <li ng-repeat="vengador in listado">
+                    {{vengador}}
+                </li>
+            </ul>
+            <!--Ejemplo ng complejo-->
+            <table class="table table-striped">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Apodo</th>
+                </tr>
+                <tr ng-repeat="vengadores in listadoavengers.avengers">
+                    <td >
+                        {{vengadores.nombre}}
+                    </td>
+                    <td>
+                        {{vengadores.edad}}
+                    </td>
+                    <td>
+                        {{vengadores.apodo}}
+                    </td>
+                </tr>
+            </table>
+
+            <!--Ejemplo dinámico-->
+            <ul>
+                <li class="list-group" ng-repeat="numero in [1,2,3,4,5,6,7,8,9,10]">
+                    2x{{numero}}={{2*numero}}
+                </li>
+            </ul>
+            </div>
+
+    </body>
+</html>

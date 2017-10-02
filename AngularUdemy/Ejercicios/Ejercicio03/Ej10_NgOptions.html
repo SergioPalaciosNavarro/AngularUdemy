@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html ng-app="anvengersApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 03 - Repeat</title>
+    <!-- Incluir Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Incluir AngularJS -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="heroesCtrl">
+        <h1>    Ng Options</h1>
+        <hr />
+
+        <div class="row">
+        <!--<label>Seleccione un héroe: (no funcional)</label>
+            <select ng-model="heroeseleccionado" class="form-control">
+                <option value=""> </option>
+                <option ng-repeat="heroe in marvelheroes" value="{{heroe.id}}">{{heroe.nombre}}</option>
+            </select>-->
+            <!-- Cuando se asigna un valor a un ng-repeat dinámicamente lo asigna en pero no se ve reflejado en el controlador -->
+
+        </div>
+        <br />
+        <label>Seleccione un héroe:</label>
+        <select ng-model="heroeseleccionado" class="form-control" ng-options="heroe.id as heroe.nombre for heroe in marvelheroes ">
+            <option value=""> </option>
+        </select>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html ng-app="anvengersApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 03 - Repeat</title>
+
+    <!-- Incluir Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Incluir AngularJS -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+        .avatar {
+            width: 75px;
+            height: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" ng-controller="heroesCtrl">
+        <div class="row">
+            <label> Búsqueda</label>
+
+            <select ng-model="myHero" ng-options="heroes.id as heroes.nombre for (heroes,heroe) in marvelheroes">
+                <option value="">- Seleccione -</option>
+            </select>
+            <select ng-model="myHeroS" ng-show="myHero" ng-options="heroe for heroe in myHero">
+                <option value="">- Seleccione -</option>
+            </select>
+   
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Nacionalidad</th>
+                <th>Apodo</th>
+            </tr>
+            <tr ng-repeat="heroes in marvelheroes | filter: myHero">
+                <td>
+                    <img ng-src="img/{{heroes.imagen}}" class="avatar img-circle img-responsive" />
+                </td>
+                <td>
+                    {{heroes.nombre}}
+                </td>
+                <td>
+                    {{heroes.edad}}
+                </td>
+                <td>
+                    {{heroes.nacionalidad}}
+                </td>
+                <td>
+                    {{heroes.apodo}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

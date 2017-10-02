@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html ng-app="anvengersApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Ejercicio 02 - Captain America</title>
+
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/app2.js"></script>
+        <!-- Si no sale el nombre/etc y sale lo que está dentro de las {{}} es que no se ha adjuntado bien el archivo app.js -->
+        
+    </head>    
+    <body>
+        <div class="container" ng-controller="captainCtrl as cpt"> 
+            <h1>Avengers</h1>
+            <h4>{{captain.nombre}}</h4>
+            <hr>
+            <div class="row">
+                
+                <!-- Div que contiene la imagen del CAPT -->
+                <div class="col-sm-3">
+                    <section class="panel">
+                        <div class="panel-body" align="center">
+                            <img ng-src="{{captain.foto}}" class="img-circle" alt="" width="150x" height="150px">
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Div, donde se mostrará la bio del CAPT -->
+                <div class="col-sm-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <label>Bio:</label>{{captain.bio}}
+                            <br>
+                            <br>
+                            <label>Edad:</label> {{captain.edad}} años<br>
+                            <br />
+                            <button class="btn btn-primary" ng-click="EditarCapt()"> Editar</button>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        <div  class="row" ng-show="mostrarform">
+            <div class="col-sm-6">
+                <section class="panel">
+                    <div class="panel-body" align="center">
+
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" ng-model="editando.nombre" />
+                        <br />    
+                        <label>Edad</label>
+                        <input type="text" class="form-control" ng-model="editando.edad" />
+
+                        <br />  
+
+                        <label>Bio</label>
+                        <textarea class="form-control" ng-model="editando.bio" rows="5"></textarea><br />
+                        <button class="btn btn-success" ng-click="GuardarCapt()"> Guardar</button>
+                        <button class="btn btn-danger" ng-click="CancelarCapt()"> Cancelar</button>
+
+                        <br />  
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        </div>
+        
+
+        <!-- ANTIGUO 1 -->
+<!-- 
+     <div class="container" ng-controller="captainCtrl as cpt"> <!-- Alias para acortar las referencias -->
+            <!--  cuando se usa el scope no necesitamos la variable cpt -->
+            <!--<h1>Avengers</h1>-->
+            <!--<h4>Nombre del héroe</h4>-->
+            <!--<h4>{{cpt.captain.nombre}}</h4>-->
+            <!--<h4>{{captain.nombre}}</h4>-
+            <hr>-->
+            <!--<div class="row">-->
+                
+                <!-- Div que contiene la imagen del profesor -->
+                <!--<div class="col-sm-3">
+                    <section class="panel">
+                        <div class="panel-body" align="center">-->
+                            <!--<img src="{{cpt.captain.foto}}" class="img-circle" alt="" width="150px" height="150px">-->
+                            <!-- El src da problemas así que se usa el ng-src -->
+                            <!--<img ng-src="{{captain.foto}}" class="img-circle" alt="" width="150px" height="150px">
+                        </div>
+                    </section>
+                </div>-->
+
+                <!-- Div, donde se mostrará la bio del profesor -->
+               <!-- <div class="col-sm-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            {{cpt.captain.bio}}
+
+                            <br>
+                            <br>
+                            <<strong>Edad:</strong> {{cpt.captain.edad}} años
+                            <br />
+                            <button class="btn btn-primary" ng-click="EditarCapt"> Editar</button>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        <div  class="row">
+            <div class="col-sm-3">
+                <section class="panel">
+                    <div class="panel-body" align="center">
+
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" ng-model="cpt.captain.nombre"/>-->
+                        
+                       <!-- //No hay que usar los {{}} si está dentro de un input, sólo se usa dentro para el ng-src -->
+                       <!-- <br />    
+                        <label>Edad</label>
+                        <input type="text" class="form-control" ng-model="cpt.captain.edad" />
+
+                        <br />  
+
+                        <label>Bio</label>
+                        <textarea class="form-control" ng-model="cpt.captain.bio" rows="5"></textarea>
+
+                        <br />  
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        </div>-->
+    </body>
+</html>

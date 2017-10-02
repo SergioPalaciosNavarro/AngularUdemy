@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html ng-app="anvengersApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 03 - Repeat</title>
+
+    <!-- Incluir Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Incluir AngularJS -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+        .avatar {
+            width: 75px;
+            height: 75px;
+        }
+        .cursor{
+            cursor:pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container" ng-controller="heroesmarvelCtrl">
+        <div class="row">
+            <label> Búsqueda</label>
+            <input type="text" ng-model="busqueda.nombre" class="form-control" placeholder="Buscar por nombre..." />
+            <br />
+            <select ng-model="busqueda.nacionalidad" class="form-control">
+                <option value=""></option>
+                <option value="Russian">Russian</option>
+                <option value="Asgardian">Asgardian</option>
+                <option value="Romanian">Romanian</option>
+                <option value="American">American</option>
+
+
+            </select>
+
+
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>Imagen</th>
+                <th><a class="cursor"   ng-click="columna='nombre';            reverse=!reverse;">Nombre</a></th>
+                <th><a class="cursor"   ng-click="columna='edad';                reverse=!reverse;">Edad</a></th>
+                <th><a class="cursor"   ng-click="columna='nacionalidad' ;    reverse=!reverse;">Nacionalidad</a></th>
+                <th><a class="cursor"   ng-click="columna='apodo';               reverse=!reverse;">Apodo</a></th>
+            </tr>
+            <tr ng-repeat="heroes in marvelheroes | filter: busqueda |orderBy:columna:reverse">
+                <!--Acendente: normal. Descendente: con un - delante-->
+                 <!-- Después del orderBy viene una variable, por tanto si es string, etc, debe ir entre '' -->
+                <!--Para hacer un orderby para todas se crea una variable NO NECESITA LOS ''-->
+                <td>
+                    <img ng-src="img/{{heroes.imagen}}" class="avatar img-circle img-responsive" />
+                </td>
+                <td>
+                    {{heroes.nombre}}
+                </td>
+                <td>
+                    {{heroes.edad}}
+                </td>
+                <td>
+                    {{heroes.nacionalidad}}
+                </td>
+                <td>
+                    {{heroes.apodo}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
