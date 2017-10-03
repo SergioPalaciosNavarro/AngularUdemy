@@ -1,0 +1,27 @@
+﻿<table class="table table-striped">
+    <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Nacionalidad</th>
+        <th>Apodo</th>
+    </tr>
+    <tr ng-repeat="heroe in heroes ">
+
+        <td>
+            <img ng-src="img/{{heroe.imagen}}" class="avatar img-circle img-responsive" />
+        </td>
+        <td>
+            {{heroe.nombre}}
+        </td>
+        <td>
+            {{heroe.edad}}
+        </td>
+        <td>
+            {{heroe.nacionalidad}}
+        </td>
+        <td>
+            {{heroe.apodo}}
+        </td>
+    </tr>
+</table>
